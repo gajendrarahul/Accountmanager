@@ -1,0 +1,23 @@
+{% extends 'base/master.html' %}
+
+ {% block 'sidebar' %}
+  {% include 'components/sidebar.html' %}
+ {% endblock %}
+
+ {% block 'navbar' %}
+  {% include 'components/navbar.html' %}
+ {% endblock %}
+
+ {% block 'footer' %}
+
+
+ {% endblock %}
+
+<!-- body part -->
+{% block 'body' %}
+<form method="post" enctype="multipart/form-data">
+  {{form.as_p }}
+ <button type="submit" class="btn btn-info">submit</button>
+  {% csrf_token %}
+</form>
+{% endblock %}

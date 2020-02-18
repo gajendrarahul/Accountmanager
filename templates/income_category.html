@@ -1,0 +1,33 @@
+{% extends 'base/master.html' %}
+
+ {% block 'sidebar' %}
+  {% include 'components/sidebar.html' %}
+ {% endblock %}
+
+ {% block 'navbar' %}
+  {% include 'components/navbar.html' %}
+ {% endblock %}
+
+ {% block 'footer' %}
+
+ {% endblock %}
+
+{% block 'body' %}
+<form method="post">
+   {{form.as_p}}
+ <button type="submit" class="btn btn-info">Submit</button>
+   {% csrf_token %}
+</form>
+<table class="table">
+    <thead>
+     <th>Category</th>
+    <th>Action</th>
+    </thead>
+    {% for c in category %}
+        <tr>
+            <td>{{c.title}}</td>
+            <td>Del | Edit </td>
+        </tr>
+     {% endfor %}
+</table>
+{% endblock %}
